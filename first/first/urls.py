@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from home.views import index as home_index
+from home.views import index as music_index
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r"^navigation/templates/(?P<path>.*)", 'django.views.static.serve', {"document_root":"/home/su/django/website/first/navigation/templates"}),
+    url(r'^$', home_index, name="daohang"),
+    url(r'^music/$', music_index, name="music")
 ]
