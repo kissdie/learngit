@@ -16,11 +16,17 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from home.views import index as home_index
-from home.views import index as music_index
+from blog.views import index as blog_index
+from book.views import index as book_index
+from music.views import index as music_index
+from think.views import index as think_index
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r"^navigation/templates/(?P<path>.*)", 'django.views.static.serve', {"document_root":"/home/su/django/website/first/navigation/templates"}),
-    url(r'^$', home_index, name="daohang"),
-    url(r'^music/$', music_index, name="music")
+    url(r'^$', home_index, name="home"),
+    url(r'^blog/$', blog_index, name="blog"),
+    url(r'^music/$', music_index, name="music"),
+    url(r'^book/$', book_index, name="book"),
+    url(r'^think/$', think_index, name="think"),
+
 ]

@@ -1,15 +1,49 @@
 <!DOCTYPE html>
-{% extends "base.html" %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .calendar{
+            width: 140px;
+            height: 60px;
+            border-right: 1px solid #000 ;
+            font-family: 'CharlisSILTalic';
+            font-style: italic;
+        }
+        .date{
+            float: left;
+            width: 55px;
+            text-align: right;
+            font-size: 40px;
+        }
+        .mon, .year{
+            display: block;
+            margin-left: 75px;
+            font-size: 18px;
+        }
+        .year{
+            line-height: 30px;
+        }
+
+    </style>
+{% extends "base.html" %} }}
 </head>
 <body>
 
 {% block content %}
-<p>suusususuusususu</p>
+      <div class="calendar">
+    <span class="date">{{ data }}</span>
+    <span class="mon">{{ month }}</span>
+    <span class="year">{{ year }}</span>
 
+      </div>
+    <span >{{ tim }}</span>
 {% endblock %}
 </body>
 </html>
