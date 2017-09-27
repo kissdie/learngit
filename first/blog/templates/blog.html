@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+{% for tag in tags %}
+    <a href="{% url "blog:list" tag.tag %}">
+        <p>{{ tag.tag }}</p>
+    </a>
+    {% for article in articles %}
+        {% if article.tag.tag == tag.tag %}
+            <a href="{% url "blog:detail" article.id %}">
+                <p>{{ article.title }}</p>
+            </a>
+            <p>{{ article.data }}</p>
+            <P>{{ article.author }}</P>
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+
+
+
+{% endblock %}
+</body>
+</html>

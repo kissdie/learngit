@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+{% block content %}
+{% for a in articles %}
+    <a href="{% url "blog:detail" a.id %}">
+        <p>{{ a.title }}</p>
+    </a>
+    <p>{{ a.author }}</p>
+    <p>{{ a.data }}</p>
+{% endfor %}
+{% endblock %}
+</body>
+</html>
